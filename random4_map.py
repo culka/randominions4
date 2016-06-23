@@ -174,13 +174,17 @@ class Random4Map:
                     elif items[0] == "#neighbourspec":
                         self.specialconnections.append(items[1].split(" "))
                     elif items[0] == "#dom2title":
-                        self.title = items[1]
+                        self.title = items[1] + " random indies"
                     elif items[0] == "#imagefile":
                         self.imagefile = items[1]
                     elif items[0] ==  "#description":
                         self.description = items[1]
                     elif items[0] == "#wraparound":
                         self.wrap = "xy"
+                    elif items[0] == "#hwraparound":
+                        self.wrap = "x"
+                    elif items[0] == "#vwraparound":
+                        self.wrap = "y"
 
         for connection in self.connections:
             self.provinces[int(connection[0])].addConnection(int(connection[1]))
@@ -199,6 +203,10 @@ class Random4Map:
             if self.wrap is not None:
                 if self.wrap == "xy":
                     ofile.write("#wraparound\n")
+                elif self.wrap == "x":
+                    ofile.write("#hwraparound\n")
+                else:
+                    ofile.write("#vwraparound\n")
 
             for province in self.provinces:
                 ofile.write("#terrain " + str(province) + " " + str(self.provinces[province].getTerrain()) + "\n")
@@ -217,6 +225,11 @@ class Random4Map:
             for province in [x for x in self.provinces if self.provinces[x].getIndies() is not None]:
                 ofile.write('#land ' + str(province) + '\n') 
                 ofile.write(self.provinces[province].getIndies())
+
+                # can be done here since start locations cannot have thrones
+                throne = self.provinces[province].getThrone()
+                if throne is not None:
+                    ofile.write("#knownfeature " + str(throne) + "\n")
 
     def position(self, landnations, waternations, lvl1thrones, lvl2thrones, lvl3thrones):
 
@@ -258,12 +271,12 @@ class Random4Map:
             new_water_starts = []
 
             if len(self.start_positions_land) < landnations:
-                new_land_starts = self.findStarts(potential_land, no_go, landnations - len(self.start_positions_land))
+                new_land_starts = self.findStarts(potential_land, landnations - len(self.start_positions_land))
                 if new_land_starts is None:
                     continue
 
             if len(self.start_positions_water) < waternations:
-                new_water_starts = self.findStarts(potential_water, no_go, waternations - len(self.start_positions_water))
+                new_water_starts = self.findStarts(potential_water, waternations - len(self.start_positions_water))
                 if new_water_starts is None:
                     continue
 
@@ -271,14 +284,19 @@ class Random4Map:
             self.start_positions_water |= set(new_water_starts)
 
         potential_thrones = set(x for x in self.provinces) - self.start_positions_water - self.start_positions_land - thrones
-        
+        potential_thrones_2 = set(potential_thrones)
+
         for province in [x for x in self.provinces if x not in self.start_positions_land | self.start_positions_water]:
             self.provinces[province].addNoStart()
 
         while len(thrones) < (lvl1thrones + lvl2thrones + lvl3thrones):
-            choice = random.sample(potential_thrones, 1)[0]
+            if len(potential_thrones_2) == 0:
+                choice = random.sample(potential_thrones, 1)[0]
+            else:
+                choice = random.sample(potential_thrones_2, 1)[0]
+                potential_thrones -= set(self.provinces[choice].getConnections())
             thrones.add(choice)
-            potential_thrones.remove(choice)
+            potential_thrones_2.remove(choice)
 
         thrones_in_game = []
         throne_req = [lvl1thrones, lvl2thrones, lvl3thrones]
@@ -290,25 +308,24 @@ class Random4Map:
                 self.provinces[choice].addThrone(i + 1, thrones_in_game)
 
 
-    def findStarts(self, potential, no_go, count):
+    def findStarts(self, potential, count):
         if len(potential) == 0:
             return None
 
         # Attempt 10 different random setups before giving up
         for i in xrange(10):
 
-            choice = random.sample(potential, 1)[0]
+            choice = random.sample(potential, 1)
             if count == 1:
-                return [choice]
+                return choice
 
+            no_go2 = set(self.provinces[choice[0]].getConnections())
+            no_go2 |= set([y for x in no_go2 for y in self.provinces[x].getConnections()])
 
-            no_go2 = set(self.provinces[choice].getConnections())
-            no_go2 |= set([y for x in no_go for y in self.provinces[x].getConnections()])
-
-            nxt = self.findStarts(potential - no_go2, no_go2, count - 1)
+            nxt = self.findStarts(potential - no_go2, count - 1)
 
             if nxt is not None:
-                return [choice] + nxt
+                return choice + nxt
 
         return None
 

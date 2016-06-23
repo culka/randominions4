@@ -3,9 +3,10 @@ import random
 
 class Random4Indies:
 
-    def __init__(self, sourcefile, rarechance):
+    def __init__(self, sourcefile, rarechance, strength):
 
         self.rarechance = rarechance
+        self.strength = strength / 100.0
         self.poptypes = {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []}
         self.rares = {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []}
         self.throne_guards = {
@@ -121,7 +122,7 @@ class Random4Indies:
                 stringList += self.getCommanderString(commander)
 
         for unit in entry['unit']:
-            count = random.randrange(int(unit['count']*0.7), int(unit['count']*1.3))
+            count = int(random.randrange(int(unit['count']*0.7), int(unit['count']*1.3)) * self.strength)
             stringList += '#units ' + str(count) + ' ' + self.getString(unit['type']) + '\n'
 
         return ''.join(stringList)
