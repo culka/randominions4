@@ -294,9 +294,10 @@ class Random4Map:
                 choice = random.sample(potential_thrones, 1)[0]
             else:
                 choice = random.sample(potential_thrones_2, 1)[0]
-                potential_thrones -= set(self.provinces[choice].getConnections())
+                potential_thrones_2 -= set(self.provinces[choice].getConnections())
+                potential_thrones_2.remove(choice)
             thrones.add(choice)
-            potential_thrones_2.remove(choice)
+            potential_thrones.remove(choice)
 
         thrones_in_game = []
         throne_req = [lvl1thrones, lvl2thrones, lvl3thrones]
