@@ -1,0 +1,161 @@
+{
+    "title": "example",
+    "poptypes": [ // maximum of 50 poptypes
+        {
+            // terrain contains the differen terrains this poptype may appear in
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
+            "rare": 0.5, // Chance to not be chosen even if rolled, 0.5 = 50%, makes poptype more rare
+            "commander": [ 
+                {
+                    "type": 35, // id or name
+                    "count": 2, // number of these commanders
+                    "items": 4,  // amount and quality of items the commander has, 0-4, default 0
+                    "xp": 20, // Experience the commander has, 0-100, default 0
+                    "name": ["Adolf"], // List of possible names this commander may have. Must be a list even if only one name is present!
+                    "magic": { // Magic paths this commander has, these are in addition to the commander's default paths
+                        "fire": 2,
+                        "water": 1,
+                        "earth": 2,
+                        "air": 5,
+                        "nature": 3,
+                        "death": 3,
+                        "astral": 1,
+                        "blood": 3,
+                        "priest": 4 // Note: priest, not holy
+                    }
+                },
+                {
+                    "type": 240,
+                    "count": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Flagellant", // id or name
+                    "count": 15 // number of these units; gets randomized +- 30%
+                },
+                {
+                    "type": 39,
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                35, 240 // id or name
+            ],
+            "recruitable_units": [
+                39 // id or name
+            ],
+            "pd_commander": 240, // the indy commander you get at 20 PD
+            "pd": [ // May contain max of 3 different types of pd units
+                {
+                    "type": 39, // id or name
+                    "count": 10 // amount you get per 10 points of PD
+                },
+                {
+                    "type": 39,
+                    "count": 10
+                }
+            ]
+        }
+    ],
+    "rares": [ // Provinces may also have rare indies present, these are added to the existing defenders
+               // Rarity is defined when the program is run
+        {  // Rares have no PD or recruits
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": 489,
+                    "count": 2,
+                    "items": 3
+                }
+            ],
+            "unit": [
+            ]
+        },
+        {
+            "terrain": ["water", "deepwater"],
+            "commander": [
+            ],
+            "unit": [
+                {
+                    "type": 574,
+                    "count": 10
+                }
+            ]
+        }
+    ],
+    "throne_guards": { // Throne guards are sorted by throne level
+        "1": [
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": 489,
+                        "count": 2,
+                        "items": 3
+                    }
+                ],
+                "unit": [
+                ]
+            },
+            {
+                "terrain": ["water", "deepwater"],
+                "commander": [
+                ],
+                "unit": [
+                    {
+                        "type": 574,
+                        "count": 10
+                    }
+                ]
+            }
+        ],
+        "2": [
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": 489,
+                        "count": 1,
+                        "items": 3
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": 489,
+                        "count": 20
+                    }
+                ]
+            },
+            {
+                "terrain": ["water", "deepwater"],
+                "commander": [
+                ],
+                "unit": [
+                    {
+                        "type": 574,
+                        "count": 10
+                    }
+                ]
+            }
+        ],
+        "3": [
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
+                "commander": [
+                    {
+                        "type": 2791,
+                        "count": 1,
+                        "name": ["Samog"],
+                        "magic": {
+                            "earth": 6,
+                            "nature": 6
+                        }
+                    }
+                ],
+                "unit": [
+                ]
+            }
+        ]
+    }
+}

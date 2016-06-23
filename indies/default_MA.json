@@ -1,0 +1,1811 @@
+{
+    "title": "MA Indies",
+    "poptypes": [
+        {
+            "terrain": ["plains"],
+            "commander": [
+                {
+                    "type": "Priest",
+                    "count": 1
+                },
+                {
+                    "type": 293,
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 48,
+                    "count": 20
+                },
+                {
+                    "type": 20,
+                    "count": 11
+                }
+            ],
+            "recruitable_commanders": [
+                35, "Priest"
+            ],
+            "recruitable_units": [
+                48, 20
+            ],
+            "pd_commander": 35,
+            "pd": [
+                {
+                    "type": 48,
+                    "count": 10
+                },
+                {
+                    "type": 20,
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "terrain": ["plains"],
+            "commander": [
+                {
+                    "type": "Priest",
+                    "count": 1
+                },
+                {
+                    "type": 293,
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 48,
+                    "count": 20
+                },
+                {
+                    "type": 20,
+                    "count": 11
+                }
+            ],
+            "recruitable_commanders": [
+                35, "Priest"
+            ],
+            "recruitable_units": [
+                48, 20
+            ],
+            "pd_commander": 35,
+            "pd": [
+                {
+                    "type": 48,
+                    "count": 10
+                },
+                {
+                    "type": 20,
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "terrain": ["plains"],
+            "commander": [
+                {
+                    "type": "Bandit Leader",
+                    "count": 2
+                },
+                {
+                    "type": "Demon General",
+                    "count": 1,
+                    "magic": {
+                        "death": 2
+                    }
+                }
+            ],
+            "unit": [
+                {
+                    "type": 1311,
+                    "count": 15
+                },
+                {
+                    "type": 1312,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                "Bandit Leader"
+            ],
+            "recruitable_units": [
+                1311, 1312
+            ],
+            "pd_commander": "Bandit Leader",
+            "pd": [
+                {
+                    "type": 1311,
+                    "count": 10
+                },
+                {
+                    "type": 1312,
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "forest"],
+            "commander": [
+                {
+                    "type": 1534,
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": 234,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                1534
+            ],
+            "recruitable_units": [
+                234
+            ],
+            "pd_commander": 1534,
+            "pd": [
+                {
+                    "type": 234,
+                    "count": 8
+                }
+            ]
+        },
+        {
+            "terrain": ["plains"],
+            "commander": [
+                {
+                    "type": "Fir Bolg Druid",
+                    "count": 2
+                },
+                {
+                    "type": "Fir Bolg Champion",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Fir Bolg Militia",
+                    "count": 15
+                },
+                {
+                    "type": "Fir Bolg Slinger",
+                    "count": 8
+                },
+                {
+                    "type": "Fir Bolg",
+                    "count": 8
+                }
+            ],
+            "recruitable_commanders": [
+                "Fir Bolg Champion"
+            ],
+            "recruitable_units": [
+                "Fir Bolg Militia", "Fir Bolg Slinger"
+            ],
+            "pd_commander": "Fir Bolg Champion",
+            "pd": [
+                {
+                    "type": "Fir Bolg Militia",
+                    "count": 10
+                },
+                {
+                    "type": "Fir Bolg Slinger",
+                    "count": 8
+                }
+            ]
+        },
+        {
+            "terrain": ["plains"],
+            "commander": [
+                {
+                    "type": 240,
+                    "count": 2
+                },
+                {
+                    "type": 426,
+                    "count": 2
+                },
+                {
+                    "type": 35,
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 29,
+                    "count": 15
+                },
+                {
+                    "type": 39,
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                35, 240, 426
+            ],
+            "recruitable_units": [
+                29, 39
+            ],
+            "pd_commander": "Centurion",
+            "pd": [
+                {
+                    "type": 29,
+                    "count": 10
+                },
+                {
+                    "type": 39,
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["swamp", "mountain"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Troll Seithberender",
+                    "count": 1
+                },
+                {
+                    "type": "Troll Shaman",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Forest Troll",
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                "Troll Shaman"
+            ],
+            "recruitable_units": [
+                "Forest Troll"
+            ],
+            "pd_commander": "Troll Shaman",
+            "pd": [
+                {
+                    "type": "Forest Troll",
+                    "count": 4
+                }
+            ]
+        },
+        {
+            "terrain": ["water"],
+            "rare": 0.5,
+            "commander": [
+                {
+                    "type": "Amber Clan Mage",
+                    "count": 3
+                },
+                {
+                    "type": "Amber Clan Priest",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Amber Clan Triton",
+                    "count": 20
+                },
+                {
+                    "type": "Amber Clan Guard",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Amber Clan Mage", "Amber Clan Priest"
+            ],
+            "recruitable_units": [
+                "Amber Clan Triton", "Amber Clan Guard"
+            ],
+            "pd_commander": "Amber Clan Priest",
+            "pd": [
+                {
+                    "type": "Amber Clan Triton",
+                    "count": 10
+                },
+                {
+                    "type": "Amber Clan Guard",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["swamp", "water"],
+            "commander": [
+                {
+                    "type": "Shambler Chief",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Shambler",
+                    "count": 16
+                }
+            ],
+            "recruitable_commanders": [
+                "Shambler Chief"
+            ],
+            "recruitable_units": [
+                "Shambler"
+            ],
+            "pd_commander": "Shambler Chief",
+            "pd": [
+                {
+                    "type": "Shambler",
+                    "count": 7
+                }
+            ]
+        },
+        {
+            "terrain": ["forest", "swamp"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Jade Sorceress",
+                    "count": 3
+                },
+                {
+                    "type": "Crystal Mage",
+                    "count": 1
+                },
+                {
+                    "type": "Jade Priestess",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 354,
+                    "count": 20
+                },
+                {
+                    "type": "Jade Maiden",
+                    "count": 10
+                },
+                {
+                    "type": "Jade Serpent",
+                    "count": 1
+                }
+            ],
+            "recruitable_commanders": [
+                "Jade Sorceress", "Jade Priestess"
+            ],
+            "recruitable_units": [
+                354, "Jade Maiden"
+            ],
+            "pd_commander": "Jade Priestess",
+            "pd": [
+                {
+                    "type": 354,
+                    "count": 10
+                },
+                {
+                    "type": "Jade Maiden",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["mountain"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Garnet Sorceress",
+                    "count": 3
+                },
+                {
+                    "type": "Devil",
+                    "count": 1,
+                    "magic": {
+                        "fire": 2
+                    }
+                },
+                {
+                    "type": "Garnet Priestess",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 351,
+                    "count": 20
+                },
+                {
+                    "type": "Gryphon Rider",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Garnet Sorceress", "Garnet Priestess"
+            ],
+            "recruitable_units": [
+                351, "Gryphon Rider"
+            ],
+            "pd_commander": "Garnet Priestess",
+            "pd": [
+                {
+                    "type": 351,
+                    "count": 10
+                },
+                {
+                    "type": "Gryphon Rider",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "waste"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Onyx Sorceress",
+                    "count": 3
+                },
+                {
+                    "type": "Onyx Priestess",
+                    "count": 1,
+                    "magic": {
+                        "death": 3
+                    }
+                },
+                {
+                    "type": "Onyx Priestess",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 357,
+                    "count": 20
+                },
+                {
+                    "type": "Nightmare",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Onyx Sorceress", "Onyx Priestess"
+            ],
+            "recruitable_units": [
+                357, "Nightmare"
+            ],
+            "pd_commander": "Onyx Priestess",
+            "pd": [
+                {
+                    "type": 357,
+                    "count": 10
+                },
+                {
+                    "type": "Nightmare",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "mountain"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Crystal Sorceress",
+                    "count": 3
+                },
+                {
+                    "type": "Crystal Mage",
+                    "count": 1
+                },
+                {
+                    "type": "Crystal Priestess",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 348,
+                    "count": 20
+                },
+                {
+                    "type": "Pegasus Rider",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Crystal Sorceress", "Crystal Priestess"
+            ],
+            "recruitable_units": [
+                348, "Pegasus Rider"
+            ],
+            "pd_commander": "Crystal Priestess",
+            "pd": [
+                {
+                    "type": 348,
+                    "count": 10
+                },
+                {
+                    "type": "Pegasus Rider",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["forest", "cave", "mountain"],
+            "commander": [
+                {
+                    "type": "Bakemono Shaman",
+                    "count": 1
+                },
+                {
+                    "type": "Bakemono Chief",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 1393,
+                    "count": 15
+                },
+                {
+                    "type": "O-bakemono",
+                    "count": 5
+                },
+                {
+                    "type": 1394,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                "Bakemono Chief"
+            ],
+            "recruitable_units": [
+                1393, 1394
+            ],
+            "pd_commander": "Bakemono Chief",
+            "pd": [
+                {
+                    "type": 1393,
+                    "count": 10
+                },
+                {
+                    "type": 1394,
+                    "count": 7
+                }
+            ]
+        },
+        {
+            "terrain": ["forest"],
+            "commander": [
+                {
+                    "type": "Caveman Champion",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Caveman",
+                    "count": 20
+                },
+                {
+                    "type": "Cave Cow",
+                    "count": 3
+                }
+            ],
+            "recruitable_commanders": [
+                "Caveman Champion"
+            ],
+            "recruitable_units": [
+                "Caveman"
+            ],
+            "pd_commander": "Caveman Champion",
+            "pd": [
+                {
+                    "type": "Caveman",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["cave"],
+            "commander": [
+                {
+                    "type": "Demon Priest",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Ko-oni",
+                    "count": 20
+                },
+                {
+                    "type": "Oni",
+                    "count": 4
+                }
+            ],
+            "recruitable_commanders": [
+                "Demon Priest"
+            ],
+            "recruitable_units": [
+                "Ko-oni"
+            ],
+            "pd_commander": "Demon Priest",
+            "pd": [
+                {
+                    "type": "Ko-oni",
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["cave"],
+            "commander": [
+                {
+                    "type": 2505,
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Zotz",
+                    "count": 30
+                },
+                {
+                    "type": "Beast Bat",
+                    "count": 7
+                }
+            ],
+            "recruitable_commanders": [
+                2505
+            ],
+            "recruitable_units": [
+                "Zotz"
+            ],
+            "pd_commander": 2505,
+            "pd": [
+                {
+                    "type": "Zotz",
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["cave", "waste"],
+            "commander": [
+                {
+                    "type": "Lava-born Commander",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Lava-born",
+                    "count": 20
+                },
+                {
+                    "type": "Lava Warrior",
+                    "count": 5
+                }
+            ],
+            "recruitable_commanders": [
+                "Lava-born Commander"
+            ],
+            "recruitable_units": [
+                "Lava-born"
+            ],
+            "pd_commander": "Lava-born Commander",
+            "pd": [
+                {
+                    "type": "Lava-born",
+                    "count": 8
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Acolyte",
+                    "count": 3
+                },
+                {
+                    "type": "Centurion",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Hastatus",
+                    "count": 15
+                },
+                {
+                    "type": "Accensus",
+                    "count": 15
+                },
+                {
+                    "type": "Triarius",
+                    "count": 5
+                }
+            ],
+            "recruitable_commanders": [
+                "Acolyte"
+            ],
+            "recruitable_units": [
+                "Accensus"
+            ],
+            "pd_commander": "Centurion",
+            "pd": [
+                {
+                    "type": "Hastatus",
+                    "count": 10
+                },
+                {
+                    "type": "Accensus",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["forest"],
+            "commander": [
+                {
+                    "type": "Jaguar Tribe Priest",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Jaguar Tribe Warrior",
+                    "count": 12
+                },
+                {
+                    "type": "Jaguar Tribe Slinger",
+                    "count": 12
+                },
+                {
+                    "type": "Jaguar Warrior",
+                    "count": 5
+                }
+            ],
+            "recruitable_commanders": [
+                "Jaguar Tribe Priest"
+            ],
+            "recruitable_units": [
+                "Jaguar Tribe Warrior", "Jaguar Tribe Slinger"
+            ],
+            "pd_commander": "Jaguar Tribe Priest",
+            "pd": [
+                {
+                    "type": "Jaguar Tribe Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Jaguar Tribe Slinger",
+                    "count": 7
+                }
+            ]
+        },
+        {
+            "terrain": ["forest"],
+            "commander": [
+                {
+                    "type": "Deer Tribe Shaman",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Deer Tribe Warrior",
+                    "count": 15
+                },
+                {
+                    "type": "Deer Tribe Archer",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Deer Tribe Shaman"
+            ],
+            "recruitable_units": [
+                "Deer Tribe Warrior", "Deer Tribe Archer"
+            ],
+            "pd_commander": "Deer Tribe Shaman",
+            "pd": [
+                {
+                    "type": "Deer Tribe Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Deer Tribe Archer",
+                    "count": 6
+                },
+                {
+                    "type": "Deer",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["waste", "mountain", "forest"],
+            "commander": [
+                {
+                    "type": "Bone Reader",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Bone Tribe Hunter",
+                    "count": 15
+                },
+                {
+                    "type": "Bone Tribe Beast Hunter",
+                    "count": 10
+                },
+                {
+                    "type": "Bone Tribe Head Hunter",
+                    "count": 5
+                }
+            ],
+            "recruitable_commanders": [
+                "Bone Reader"
+            ],
+            "recruitable_units": [
+                "Bone Tribe Hunter", "Bone Tribe Beast Hunter"
+            ],
+            "pd_commander": "Bone Reader",
+            "pd": [
+                {
+                    "type": "Bone Tribe Hunter",
+                    "count": 10
+                },
+                {
+                    "type": "Bone Tribe Beast Hunter",
+                    "count": 5
+                },
+                {
+                    "type": "Bone Tribe Head Hunter",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["swamp", "cave", "water"],
+            "commander": [
+                {
+                    "type": "Toad Tribe Shaman",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Toad Tribe Warrior",
+                    "count": 25
+                },
+                {
+                    "type": "Monster Toad",
+                    "count": 2
+                }
+            ],
+            "recruitable_commanders": [
+                "Toad Tribe Shaman"
+            ],
+            "recruitable_units": [
+                "Toad Tribe Warrior"
+            ],
+            "pd_commander": "Toad Tribe Shaman",
+            "pd": [
+                {
+                    "type": "Toad Tribe Warrior",
+                    "count": 15
+                }
+            ]
+        },
+        {
+            "terrain": ["forest", "waste"],
+            "commander": [
+                {
+                    "type": "Lion Tribe Witch Doctor",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Lion Tribe Archer",
+                    "count": 10
+                },
+                {
+                    "type": "Lion Tribe Warrior",
+                    "count": 13
+                },
+                {
+                    "type": "Great Lion",
+                    "count": 4
+                }
+            ],
+            "recruitable_commanders": [
+                "Lion Tribe Witch Doctor"
+            ],
+            "recruitable_units": [
+                "Lion Tribe Archer", "Lion Tribe Warrior"
+            ],
+            "pd_commander": "Lion Tribe Witch Doctor",
+            "pd": [
+                {
+                    "type": "Lion Tribe Archer",
+                    "count": 6
+                },
+                {
+                    "type": "Lion Tribe Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Great Lion",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "terrain": ["swamp"],
+            "commander": [
+                {
+                    "type": 1514,
+                    "count": 2
+                },
+                {
+                    "type": 321,
+                    "count": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Lizard Warrior",
+                    "count": 20
+                },
+                {
+                    "type": "Crocodile",
+                    "count": 7
+                }
+            ],
+            "recruitable_commanders": [
+                1514
+            ],
+            "recruitable_units": [
+                "Lizard Warrior"
+            ],
+            "pd_commander": 1514,
+            "pd": [
+                {
+                    "type": "Lizard Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Crocodile",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "terrain": ["forest", "waste"],
+            "commander": [
+                {
+                    "type": "Wolf Tribe Shaman",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Wolf Tribe Archer",
+                    "count": 15
+                },
+                {
+                    "type": "Wolf Tribe Warrior",
+                    "count": 15
+                },
+                {
+                    "type": "Wolf",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Wolf Tribe Shaman"
+            ],
+            "recruitable_units": [
+                "Wolf Tribe Archer", "Wolf Tribe Warrior"
+            ],
+            "pd_commander": "Wolf Tribe Shaman",
+            "pd": [
+                {
+                    "type": "Wolf Tribe Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Wolf Tribe Archer",
+                    "count": 5
+                },
+                {
+                    "type": "Wolf",
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["forest", "mountain"],
+            "commander": [
+                {
+                    "type": "Bear Tribe Shaman",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": 1592,
+                    "count": 15
+                },
+                {
+                    "type": 1593,
+                    "count": 15
+                },
+                {
+                    "type": "Great Bear",
+                    "count": 2
+                }
+            ],
+            "recruitable_commanders": [
+                "Bear Tribe Shaman"
+            ],
+            "recruitable_units": [
+                1592, 1593
+            ],
+            "pd_commander": "Bear Tribe Shaman",
+            "pd": [
+                {
+                    "type": 1592,
+                    "count": 10
+                },
+                {
+                    "type": 1593,
+                    "count": 5
+                },
+                {
+                    "type": "Great Bear",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "terrain": ["plains"],
+            "commander": [
+                {
+                    "type": 35,
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": 18,
+                    "count": 50
+                }
+            ],
+            "recruitable_commanders": [
+                35, 426
+            ],
+            "recruitable_units": [
+                18
+            ],
+            "pd_commander": 18,
+            "pd": [
+                {
+                    "type": 18,
+                    "count": 15
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "mountain"],
+            "commander": [
+                {
+                    "type": "Horse Tribe Chief",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Horse Tribe Cavalry",
+                    "count": 25
+                }
+            ],
+            "recruitable_commanders": [
+                "Horse Tribe Chief"
+            ],
+            "recruitable_units": [
+                "Horse Tribe Cavalry"
+            ],
+            "pd_commander": "Horse Tribe Chief",
+            "pd": [
+                {
+                    "type": "Horse Tribe Cavalry",
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm"],
+            "commander": [
+                {
+                    "type": 35,
+                    "count": 2
+                },
+                {
+                    "type": 240,
+                    "count": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Flagellant",
+                    "count": 20
+                },
+                {
+                    "type": 39,
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                35, 240
+            ],
+            "recruitable_units": [
+                39
+            ],
+            "pd_commander": 240,
+            "pd": [
+                {
+                    "type": 39,
+                    "count": 10
+                },
+                {
+                    "type": "Flagellant",
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "terrain": ["farm"],
+            "commander": [
+                {
+                    "type": 150,
+                    "count": 1
+                },
+                {
+                    "type": 633,
+                    "count": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": 150,
+                    "count": 10
+                },
+                {
+                    "type": "Slinger",
+                    "count": 20
+                }
+            ],
+            "recruitable_commanders": [
+                35
+            ],
+            "recruitable_units": [
+                150, "Slinger"
+            ],
+            "pd_commander": 35,
+            "pd": [
+                {
+                    "type": "Slinger",
+                    "count": 10
+                },
+                {
+                    "type": 150,
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "terrain": ["farm"],
+            "commander": [
+                {
+                    "type": "Knight Commander",
+                    "count": 2
+                },
+                {
+                    "type": "Holy Knight",
+                    "count": 1,
+                    "items": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Knight",
+                    "count": 15
+                },
+                {
+                    "type": 33,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                35, 426
+            ],
+            "recruitable_units": [
+                "Knight", 33
+            ],
+            "pd_commander": "Knight Commander",
+            "pd": [
+                {
+                    "type": "Knight",
+                    "count": 3
+                },
+                {
+                    "type": 33,
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["waste", "mountain"],
+            "commander": [
+                {
+                    "type": 141,
+                    "count": 2
+                },
+                {
+                    "type": 147,
+                    "count": 1,
+                    "rarity": 0.25
+                }
+            ],
+            "unit": [
+                {
+                    "type": 139,
+                    "count": 15
+                },
+                {
+                    "type": 140,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                141
+            ],
+            "recruitable_units": [
+                139, 140
+            ],
+            "pd_commander": 240,
+            "pd": [
+                {
+                    "type": 39,
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["forest", "swamp"],
+            "commander": [
+                {
+                    "type": "Wolf Tribe Shaman",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 123,
+                    "count": 15
+                },
+                {
+                    "type": 124,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                "Wolf Tribe Shaman"
+            ],
+            "recruitable_units": [
+                123, 124
+            ],
+            "pd_commander": 240,
+            "pd": [
+                {
+                    "type": 39,
+                    "count": 10
+                }
+            ]
+
+        },
+        {
+            "terrain": ["cave", "water", "deepwater"],
+            "commander": [
+                {
+                    "type": 1463,
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 1465,
+                    "count": 30
+                }
+            ],
+            "recruitable_commanders": [
+                141
+            ],
+            "recruitable_units": [
+                139, 140
+            ],
+            "pd_commander": 141,
+            "pd": [
+                {
+                    "type": 139,
+                    "count": 10
+                }
+            ]
+        }
+    ],
+    "rares": [
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": 2570,
+                    "count": 1
+                },
+                {
+                    "type": "Airya Seraphine",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 420,
+                    "count": 15
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": "Bane",
+                    "count": 3
+                }
+            ],
+            "unit": [
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": "Star Child",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Slave Trooper",
+                    "count": 8
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": "Adept of Pyriphlegeton",
+                    "count": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Magma Child",
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": "Cloud Mage",
+                    "count": 1,
+                    "magic": {
+                        "air": 3
+                    }
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Sylph",
+                    "count": 7
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "waste"],
+            "commander": [
+            ],
+            "unit": [
+                {
+                    "type": "Rephaite Warrior",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": "Necromancer",
+                    "count": 1,
+                    "magic": {
+                        "death": 3
+                    }
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Soulless",
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+            "commander": [
+                {
+                    "type": "Demon Knight",
+                    "count": 2,
+                    "items": 3
+                }
+            ],
+            "unit": [
+            ]
+        },
+        {
+            "terrain": ["water", "deepwater"],
+            "commander": [
+            ],
+            "unit": [
+                {
+                    "type": 574,
+                    "count": 10
+                }
+            ]
+        }
+    ],
+    "throne_guards": {
+        "1": [
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                ],
+                "unit": [
+                    {
+                        "type": "Draco Lion",
+                        "count": 2
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Leo",
+                        "count": 3,
+                        "magic": {
+                            "fire": 2
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Summer Lion",
+                        "count": 1
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Gnome",
+                        "count": 3
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Earth Gnome",
+                        "count": 9
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Crone",
+                        "count": 1,
+                        "items": 2,
+                        "magic": {
+                            "death": 5,
+                            "nature": 5
+                        }
+                    }
+                ],
+                "unit": [
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Unfrozen Mage",
+                        "count": 2
+                    },
+                    {
+                        "type": "Unfrozen Lord",
+                        "count": 1
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Unfrozen",
+                        "count": 7
+                    },
+                    {
+                        "type": "Unfrozen Warrior",
+                        "count": 7
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Released Sage",
+                        "count": 2
+                    },
+                    {
+                        "type": "Released King",
+                        "count": 1
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Released One",
+                        "count": 7
+                    },
+                    {
+                        "type": "Released Warrior",
+                        "count": 7
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Dust Priest",
+                        "count": 2
+                    },
+                    {
+                        "type": "Dust King",
+                        "count": 1
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Dust Walker",
+                        "count": 7
+                    },
+                    {
+                        "type": "Dust Warrior",
+                        "count": 7
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Eternal Knight",
+                        "count": 1
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Eternal Knight",
+                        "count": 10
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Demon Knight",
+                        "count": 5,
+                        "items": 2
+                    }
+                ],
+                "unit": [
+                ]
+            },
+            {
+                "terrain": ["water", "deepwater"],
+                "commander": [
+                ],
+                "unit": [
+                    {
+                        "type": 574,
+                        "count": 10
+                    }
+                ]
+            }
+        ],
+        "2": [
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Mound Fiend",
+                        "count": 3,
+                        "items": 1,
+                        "magic": {
+                            "air": 3
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Shade Beast",
+                        "count": 40
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Gorgon",
+                        "count": 2,
+                        "items": 2,
+                        "magic": {
+                            "nature": 0,
+                            "earth": 4,
+                            "air": 3
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Living Statue",
+                        "count": 20
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
+                "commander": [
+                    {
+                        "type": "Starspawn",
+                        "count": 2
+                    },
+                    {
+                        "type": "Illithid Lord",
+                        "count": 3,
+                        "items": 2
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Illithid Soldier",
+                        "count": 20
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Demon Knight",
+                        "count": 1,
+                        "items": 3,
+                        "magic": {
+                            "fire": 1,
+                            "death": 3
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Demon Knight",
+                        "count": 20
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Ivy King",
+                        "count": 2,
+                        "items": 2,
+                        "magic": {
+                            "nature": 4
+                        }
+                    },
+                    {
+                        "type": "Ivy King",
+                        "count": 1,
+                        "items": 2,
+                        "magic": {
+                            "blood": 2
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Vine Ogre",
+                        "count": 10
+                    },
+                    {
+                        "type": "Vine Man",
+                        "count": 25
+                    },
+                    {
+                        "type": "Dark Vines",
+                        "count": 5
+                    }
+                ]
+            },
+            {
+                "terrain": ["water", "deepwater"],
+                "commander": [
+                    {
+                        "type": "Ancient Kraken",
+                        "count": 1,
+                        "magic": {
+                            "astral": 5
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Kraken",
+                        "count": 10
+                    }
+                ]
+            },
+            {
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
+                "commander": [
+                    {
+                        "type": "Earth Serpent",
+                        "count": 1,
+                        "magic": {
+                            "earth": 6,
+                            "air": 8
+                        }
+                    }
+                ],
+                "unit": [
+                ]
+            }
+        ],
+        "3": [
+        ]
+    }
+}
