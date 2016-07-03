@@ -39,9 +39,162 @@ CONNECTION_TYPE = {
 CONNECTION_THRESHOLD = 4
 
 THRONES = {
-    1: range(779,790) + range(792,796) + range(798,804) + [1025, 1026],
-    2: [790, 791, 796, 797, 1017, 1024] + range(804,817),
-    3: range(817,821) + [1018] + range(1021,1024)
+    1: {
+        779: {
+            "tags": []
+        },
+        780: {
+            "tags": ["death"]
+        },
+        781: {
+            "tags": ["nature"]
+        },
+        782: {
+            "tags": ["nature"]
+        },
+        783: {
+            "tags": ["fire"]
+        },
+        784: {
+            "tags": ["cold"]
+        },
+        785: {
+            "tags": ["air", "land"]
+        },
+        786: {
+            "tags": []
+        },
+        787: {
+            "tags": ["astral"]
+        },
+        788: {
+            "tags": ["water"]
+        },
+        789: {
+            "tags": ["death"]
+        },
+        792: {
+            "tags": []
+        },
+        793: {
+            "tags": []
+        },
+        794: {
+            "tags": []
+        },
+        795: {
+            "tags": []
+        },
+        798: {
+            "tags": ["death"]
+        },
+        799: {
+            "tags": ["blood", "horror", "land"]
+        },
+        800: {
+            "tags": ["air", "nature", "land"]
+        },
+        801: {
+            "tags": ["nature", "fire", "land"]
+        },
+        802: {
+            "tags": ["death", "earth", "land"]
+        },
+        803: {
+            "tags": ["cold", "death", "land"]
+        },
+        1025: {
+            "tags": []
+        },
+        1026: {
+            "tags": ["horror", "astral"]
+        }
+    },
+    2: {
+        790: {
+            "tags": ["land"]
+        },
+        791: {
+            "tags": ["astral", "earth", "land"]
+        },
+        796: {
+            "tags": ["land", "astral", "earth"]
+        },
+        797: {
+            "tags": ["land", "astral", "air"]
+        },
+        804: {
+            "tags": ["nature"]
+        },
+        805: {
+            "tags": ["land", "fire", "astral"]
+        },
+        806: {
+            "tags": []
+        },
+        807: {
+            "tags": ["nature"]
+        },
+        808: {
+            "tags": ["death"]
+        },
+        809: {
+            "tags": ["astral"]
+        },
+        810: {
+            "tags": ["astral"]
+        },
+        811: {
+            "tags": ["blood", "land"]
+        },
+        812: {
+            "tags": ["astral"]
+        },
+        813: {
+            "tags": ["fire", "land"]
+        },
+        814: {
+            "tags": ["earth", "land"]
+        },
+        815: {
+            "tags": ["cold"]
+        },
+        816: {
+            "tags": ["land", "air"]
+        },
+        1017: {
+            "tags": []
+        },
+        1024: {
+            "tags": []
+        }
+    },
+    3: {
+        817: {
+            "tags": []
+        },
+        818: {
+            "tags": []
+        },
+        819: {
+            "tags": []
+        },
+        820: {
+            "tags": []
+        },
+        1018: {
+            "tags": ["fire"]
+        },
+        1021: {
+            "tags": ["astral", "death", "nature"]
+        },
+        1022: {
+            "tags": ["fire", "cold", "air", "earth"]
+        },
+        1023: {
+            "tags": ["horror"]
+        }
+    }
 }
 
 class Province:
@@ -53,7 +206,9 @@ class Province:
         self.name = None
         self.throne = None
         self.throne_level = 0
+        self.throne_tags = []
         self.indies = None
+        self.coast = False
 
     def setName(self, new_name):
         self.name = new_name
@@ -120,14 +275,18 @@ class Province:
     def addThrone(self, level, thrones):
         self.throne_level = level
         while True:
-            choice = random.choice(THRONES[level])
+            choice = random.sample(THRONES[level], 1)[0]
             if choice not in thrones:
                 self.throne = choice
+                self.throne_tags = THRONES[level][choice]['tags']
                 thrones.append(choice)
                 break
 
     def getThrone(self):
         return self.throne
+
+    def getThroneTags(self):
+        return self.throne_tags
 
     def getThroneLevel(self):
         return self.throne_level
@@ -138,6 +297,16 @@ class Province:
     def getIndies(self):
         return self.indies
 
+    def isCoast(self):
+        return self.coast
+
+    def checkCoast(self, provinces):
+        if not (self.terrain & TERRAIN_MASK['WATER']) == TERRAIN_MASK['WATER']:
+            for connection in self.connections:
+                if self.connections[connection] != 3 and provinces[connection].hasTerrain('WATER'):
+                    self.coast = True
+                    break
+    
 class Random4Map:
 
     def __init__(self, mapfile):
@@ -194,6 +363,8 @@ class Random4Map:
             self.provinces[int(connection[0])].setConnectionType(int(connection[1]), int(connection[2]))
             self.provinces[int(connection[1])].setConnectionType(int(connection[0]), int(connection[2]))
 
+        for province in self.provinces:
+            self.provinces[province].checkCoast(self.provinces)
 
     def writemap(self, target):
         with open(target, 'w') as ofile:
@@ -240,9 +411,9 @@ class Random4Map:
         for province in self.provinces:
             if self.provinces[province].hasTerrain("START"):
                 if self.provinces[province].hasTerrain('WATER'):
-                    self.start_positions_water.append(province)
+                    self.start_positions_water.add(province)
                 else:
-                    self.start_positions_land.append(province)
+                    self.start_positions_land.add(province)
             elif self.provinces[province].hasTerrain("THRONE"):
                 thrones.add(province)
             elif self.provinces[province].properConnectionCount(self.provinces) >= CONNECTION_THRESHOLD:
@@ -335,7 +506,8 @@ class Random4Map:
         for province in [x for x in self.provinces if x not in (self.start_positions_land | self.start_positions_water)]:
             terrains = self.provinces[province].getIndyTerrains()
             throne = self.provinces[province].getThroneLevel()
-            self.provinces[province].setIndies(indies.getIndiesFor(terrains, throne))
+            tags = self.provinces[province].getThroneTags()
+            self.provinces[province].setIndies(indies.getIndiesFor(terrains, throne, tags))
 
 if __name__ == "__main__":
     print "This file is not intended to be run as stand alone!"

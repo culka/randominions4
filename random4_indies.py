@@ -92,11 +92,12 @@ class Random4Indies:
 
         return result
 
-    def getThroneGuardsForTerrain(self, terrains, throne_level):
-        choices = []
-        for terrain in terrains:
-            if self.throne_guards[throne_level][terrain] is not None:
-                choices = choices + self.throne_guards[throne_level][terrain]
+    def getThroneGuardsForTerrain(self, terrains, throne_level, throne_tags):
+        choices = [choice for terrain in terrains for choice in self.throne_guards[throne_level][terrain]]
+        filtered = [f for tag in throne_tags for f in choices if f.get('tags') is not None and tag in f['tags']]
+
+        if len(filtered) != 0:
+            choices = filtered
 
         result = None
 
@@ -122,13 +123,13 @@ class Random4Indies:
                 stringList += self.getCommanderString(commander)
 
         for unit in entry['unit']:
-            count = int(random.randrange(int(unit['count']*0.7), int(unit['count']*1.3)) * self.strength)
+            count = max(int(random.randrange(int(unit['count']*0.7), int(unit['count']*1.3)) * self.strength), 1)
             stringList += '#units ' + str(count) + ' ' + self.getString(unit['type']) + '\n'
 
         return ''.join(stringList)
 
 
-    def getIndiesFor(self, terrains, throne_level):
+    def getIndiesFor(self, terrains, throne_level, throne_tags):
         poptype = self.getPoptypeForTerrain(terrains)
         stringList = []
 
@@ -141,7 +142,7 @@ class Random4Indies:
             stringList += self.getUnitsForEntry(rare)
 
         if throne_level > 0:
-            throneguards = self.getThroneGuardsForTerrain(terrains, throne_level)
+            throneguards = self.getThroneGuardsForTerrain(terrains, throne_level, throne_tags)
             stringList += self.getUnitsForEntry(throneguards)
 
         return ''.join(stringList)

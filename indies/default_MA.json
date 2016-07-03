@@ -2,42 +2,137 @@
     "title": "MA Indies",
     "poptypes": [
         {
-            "terrain": ["plains"],
+            "terrain": ["mountain"],
+            "rare": 0.75,
             "commander": [
                 {
-                    "type": "Priest",
+                    "type": 1473,
                     "count": 1
                 },
                 {
-                    "type": 293,
+                    "type": "Barbarian Chief",
                     "count": 2
                 }
             ],
             "unit": [
                 {
-                    "type": 48,
+                    "type": "Mountain Warrior",
                     "count": 20
                 },
                 {
-                    "type": 20,
-                    "count": 11
+                    "type": "Hill Giant",
+                    "count": 1
                 }
             ],
             "recruitable_commanders": [
-                35, "Priest"
+                1473, "Barbarian Chief"
             ],
             "recruitable_units": [
-                48, 20
+                "Mountain Warrior"
             ],
-            "pd_commander": 35,
+            "pd_commander": "Barbarian Chief",
             "pd": [
                 {
-                    "type": 48,
+                    "type": "Mountain Warrior",
+                    "count": 15
+                }
+            ]
+        },
+        {
+            "terrain": ["forest"],
+            "rare": 0.75,
+            "commander": [
+                {
+                    "type": "Dryad",
+                    "count": 1
+                },
+                {
+                    "type": "Royal Forester",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Forest Warrior",
+                    "count": 20
+                },
+                {
+                    "type": "Forester",
                     "count": 10
                 },
                 {
-                    "type": 20,
-                    "count": 3
+                    "type": "Forest Giant",
+                    "count": 1
+                }
+            ],
+            "recruitable_commanders": [
+                "Royal Forester"
+            ],
+            "recruitable_units": [
+                "Forest Warrior"
+            ],
+            "pd_commander": "Royal Forester",
+            "pd": [
+                {
+                    "type": "Forest Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Forester",
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["forest"],
+            "rare": 0.4,
+            "commander": [
+                {
+                    "type": "Bloodhenge Druid",
+                    "count": 2
+                },
+                {
+                    "type": "Woodhenge Druid",
+                    "count": 2
+                },
+                {
+                    "type": "Arch Druid",
+                    "count": 1
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Woodsman",
+                    "count": 20
+                },
+                {
+                    "type": "Woodsman Blowpipe",
+                    "count": 15
+                },
+                {
+                    "type": "Dark Vines",
+                    "count": 7
+                }
+            ],
+            "recruitable_commanders": [
+                "Woodhenge Druid", "Bloodhenge Druid"
+            ],
+            "recruitable_units": [
+                "Woodsman", "Woodsman Blowpipe"
+            ],
+            "pd_commander": "Woodhenge Druid",
+            "pd": [
+                {
+                    "type": "Woodsman",
+                    "count": 10
+                },
+                {
+                    "type": "Woodsman Blowpipe",
+                    "count": 10
+                },
+                {
+                    "type": "Dark Vines",
+                    "count": 1
                 }
             ]
         },
@@ -562,7 +657,7 @@
                 "Bakemono Chief"
             ],
             "recruitable_units": [
-                1393, 1394
+                1393, 1394, "O-bakemono"
             ],
             "pd_commander": "Bakemono Chief",
             "pd": [
@@ -573,11 +668,15 @@
                 {
                     "type": 1394,
                     "count": 7
+                },
+                {
+                    "type": "O-bakemono",
+                    "count": 1
                 }
             ]
         },
         {
-            "terrain": ["forest"],
+            "terrain": ["cave"],
             "commander": [
                 {
                     "type": "Caveman Champion",
@@ -1359,17 +1458,19 @@
             "commander": [
                 {
                     "type": 2570,
-                    "count": 1
+                    "count": 1,
+                    "name": ["Adolf"]
                 },
                 {
                     "type": "Airya Seraphine",
-                    "count": 2
+                    "count": 1,
+                    "name": ["Eva"]
                 }
             ],
             "unit": [
                 {
                     "type": 420,
-                    "count": 15
+                    "count": 5
                 }
             ]
         },
@@ -1378,7 +1479,7 @@
             "commander": [
                 {
                     "type": "Bane",
-                    "count": 3
+                    "count": 2
                 }
             ],
             "unit": [
@@ -1395,7 +1496,7 @@
             "unit": [
                 {
                     "type": "Slave Trooper",
-                    "count": 8
+                    "count": 4
                 }
             ]
         },
@@ -1410,7 +1511,7 @@
             "unit": [
                 {
                     "type": "Magma Child",
-                    "count": 10
+                    "count": 4
                 }
             ]
         },
@@ -1428,7 +1529,7 @@
             "unit": [
                 {
                     "type": "Sylph",
-                    "count": 7
+                    "count": 3
                 }
             ]
         },
@@ -1439,7 +1540,7 @@
             "unit": [
                 {
                     "type": "Rephaite Warrior",
-                    "count": 2
+                    "count": 1
                 }
             ]
         },
@@ -1448,10 +1549,7 @@
             "commander": [
                 {
                     "type": "Necromancer",
-                    "count": 1,
-                    "magic": {
-                        "death": 3
-                    }
+                    "count": 1
                 }
             ],
             "unit": [
@@ -1466,7 +1564,7 @@
             "commander": [
                 {
                     "type": "Demon Knight",
-                    "count": 2,
+                    "count": 1,
                     "items": 3
                 }
             ],
@@ -1488,18 +1586,20 @@
     "throne_guards": {
         "1": [
             {
-                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "tags": ["nature"],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
                 "commander": [
                 ],
                 "unit": [
                     {
                         "type": "Draco Lion",
-                        "count": 2
+                        "count": 5
                     }
                 ]
             },
             {
-                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "tags": ["fire"],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
                 "commander": [
                     {
                         "type": "Leo",
@@ -1512,11 +1612,12 @@
                 "unit": [
                     {
                         "type": "Summer Lion",
-                        "count": 1
+                        "count": 8
                     }
                 ]
             },
             {
+                "tags": ["earth"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
                 "commander": [
                     {
@@ -1527,28 +1628,13 @@
                 "unit": [
                     {
                         "type": "Earth Gnome",
-                        "count": 9
+                        "count": 10
                     }
                 ]
             },
             {
-                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
-                "commander": [
-                    {
-                        "type": "Crone",
-                        "count": 1,
-                        "items": 2,
-                        "magic": {
-                            "death": 5,
-                            "nature": 5
-                        }
-                    }
-                ],
-                "unit": [
-                ]
-            },
-            {
-                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "tags": ["cold", "death"],
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "swamp"],
                 "commander": [
                     {
                         "type": "Unfrozen Mage",
@@ -1571,6 +1657,7 @@
                 ]
             },
             {
+                "tags": ["death"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
                 "commander": [
                     {
@@ -1594,7 +1681,8 @@
                 ]
             },
             {
-                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "tags": ["fire", "death"],
+                "terrain": ["plains", "farm", "mountain", "cave", "waste", "swamp"],
                 "commander": [
                     {
                         "type": "Dust Priest",
@@ -1617,11 +1705,37 @@
                 ]
             },
             {
+                "tags": ["death"],
+                "terrain": ["plains", "farm", "forest", "cave", "swamp", "mountain"],
+                "commander": [
+                    {
+                        "type": 643,
+                        "count": 1,
+                        "items": 1,
+                        "magic": {
+                            "death": 3,
+                            "blood": 2
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": 316,
+                        "count": 15
+                    },
+                    {
+                        "type": "Soulless Giant",
+                        "count": 15
+                    }
+                ]
+            },
+            {
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
                 "commander": [
                     {
                         "type": "Eternal Knight",
-                        "count": 1
+                        "count": 1,
+                        "xp": 40
                     }
                 ],
                 "unit": [
@@ -1632,32 +1746,135 @@
                 ]
             },
             {
+                "tags": ["cold"],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Yeti",
+                        "count": 1,
+                        "items": 3,
+                        "magic": {
+                            "water": 2,
+                            "air": 2
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Yeti",
+                        "count": 15
+                    }
+                ]
+            },
+            {
+                "tags": ["blood"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
                 "commander": [
                     {
                         "type": "Demon Knight",
                         "count": 5,
-                        "items": 2
+                        "items": 2,
+                        "xp": 20
                     }
                 ],
                 "unit": [
                 ]
             },
             {
+                "tags": ["fire"],
+                "terrain": ["water", "deepwater"],
+                "commander": [
+                    {
+                        "type": "Amber Clan Mage",
+                        "count": 2
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Flame Jelly",
+                        "count": 15
+                    }
+                ]
+            },
+            {
+                "tags": [],
                 "terrain": ["water", "deepwater"],
                 "commander": [
                 ],
                 "unit": [
                     {
                         "type": 574,
-                        "count": 10
+                        "count": 25
                     }
                 ]
             }
         ],
         "2": [
             {
-                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "tags": ["fire", "nature"],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Bouda",
+                        "count": 3
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Green Lion",
+                        "count": 15
+                    }
+                ]
+            },
+            {
+                "tags": ["nature"],
+                "terrain": ["plains", "farm", "mountain", "forest", "swamp"],
+                "commander": [
+                    {
+                        "type": 1535,
+                        "count": 2,
+                        "items": 2
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Killer Mantis",
+                        "count": 15
+                    },
+                    {
+                        "type": "Fire Ant",
+                        "count": 10
+                    }
+                ]
+            },
+            {
+                "tags": ["fire", "air"],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Demon Macaw",
+                        "count": 1,
+                        "items": 3,
+                        "magic": {
+                            "fire": 5,
+                            "astral": 0
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Swan",
+                        "count": 20
+                    },
+                    {
+                        "type": "Spring Hawk",
+                        "count": 5
+                    }
+                ]
+            },
+            {
+                "tags": ["death"],
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
                 "commander": [
                     {
                         "type": "Mound Fiend",
@@ -1676,6 +1893,7 @@
                 ]
             },
             {
+                "tags": ["nature", "earth"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
                 "commander": [
                     {
@@ -1697,6 +1915,30 @@
                 ]
             },
             {
+                "tags": [],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Monolith",
+                        "count": 1,
+                        "items": 2,
+                        "name": ["Kitfox, lord of scales"],
+                        "magic": {
+                            "nature": 4,
+                            "earth": 4,
+                            "astral": 0
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Master Smith",
+                        "count": 60
+                    }
+                ]
+            },
+            {
+                "tags": ["astral"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
                 "commander": [
                     {
@@ -1717,6 +1959,50 @@
                 ]
             },
             {
+                "tags": [],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Sage",
+                        "count": 1,
+                        "items": 2
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Kamadhenu",
+                        "count": 5
+                    }
+                ]
+            },
+            {
+                "tags": ["nature", "cold"],
+                "terrain": ["plains", "farm", "mountain", "forest", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Son of Fenrer",
+                        "count": 1,
+                        "items": 2,
+                        "name": ["sloppy"],
+                        "magic": {
+                            "water": 4,
+                            "nature": 4
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Jotun Wolf",
+                        "count": 15
+                    },
+                    {
+                        "type": "Jotun Wolf",
+                        "count": 15
+                    }
+                ]
+            },
+            {
+                "tags": ["blood"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
                 "commander": [
                     {
@@ -1737,7 +2023,25 @@
                 ]
             },
             {
+                "tags": ["death", "blood"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Fallen Angel",
+                        "count": 1,
+                        "items": 3
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": "Handmaiden of Death",
+                        "count": 10
+                    }
+                ]
+            },
+            {
+                "tags": ["nature"],
+                "terrain": ["plains", "farm", "forest", "swamp"],
                 "commander": [
                     {
                         "type": "Ivy King",
@@ -1767,16 +2071,54 @@
                     },
                     {
                         "type": "Dark Vines",
-                        "count": 5
+                        "count": 10
                     }
                 ]
             },
             {
+                "tags": ["nature", "blood"],
+                "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp"],
+                "commander": [
+                    {
+                        "type": "Freak Lord",
+                        "count": 1,
+                        "items": 2,
+                        "magic": {
+                            "nature": 3,
+                            "boold": 3
+                        }
+                    }
+                ],
+                "unit": [
+                    {
+                        "type": 530,
+                        "count": 5
+                    },
+                    {
+                        "type": 468,
+                        "count": 8
+                    },
+                    {
+                        "type": 467,
+                        "count": 3
+                    },
+                    {
+                        "type": 461,
+                        "count": 20
+                    },
+                    {
+                        "type": 453,
+                        "count": 20
+                    }
+                ]
+            },
+            {
+                "tags": ["nature"],
                 "terrain": ["water", "deepwater"],
                 "commander": [
                     {
                         "type": "Ancient Kraken",
-                        "count": 1,
+                        "count": 2,
                         "magic": {
                             "astral": 5
                         }
@@ -1785,19 +2127,21 @@
                 "unit": [
                     {
                         "type": "Kraken",
-                        "count": 10
+                        "count": 20
                     }
                 ]
             },
             {
+                "tags": ["earth"],
                 "terrain": ["plains", "farm", "mountain", "forest", "cave", "waste", "swamp", "water", "deepwater"],
                 "commander": [
                     {
                         "type": "Earth Serpent",
                         "count": 1,
+                        "name": ["Samog"],
                         "magic": {
                             "earth": 6,
-                            "air": 8
+                            "air": 6
                         }
                     }
                 ],
