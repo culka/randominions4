@@ -108,7 +108,7 @@ def runGenerator(mapfile, indyfiles, targetfile, landcount, watercount, coaststa
     for indyfile in indyfiles:
         indies.readIndies(indyfile)
     randommap = random4_map.Random4Map(mapfile)
-    randommap.position(landcount, watercount, lvl1thrones, lvl2thrones, lvl3thrones)
+    randommap.position(landcount, watercount, coaststarts, foreststarts, swampstarts, cavestarts, lvl1thrones, lvl2thrones, lvl3thrones)
     randommap.populate(indies)
     randommap.writemap(targetfile)
     indies.writeModFile(targetfile)

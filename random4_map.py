@@ -255,6 +255,8 @@ class Province:
         self.terrain = self.terrain | TERRAIN_MASK['NOSTART']
 
     def hasTerrain(self, type):
+        if type == "COAST":
+            return self.coast
         return (self.terrain & TERRAIN_MASK[type]) == TERRAIN_MASK[type]
 
     def addConnection(self, target):
@@ -401,17 +403,30 @@ class Random4Map:
                 if throne is not None:
                     ofile.write("#knownfeature " + str(throne) + "\n")
 
-    def position(self, landnations, waternations, lvl1thrones, lvl2thrones, lvl3thrones):
+    def position(self, landnations, waternations, coaststarts, foreststarts, swampstarts, cavestarts, lvl1thrones, lvl2thrones, lvl3thrones):
 
         thrones = set()
         potential_land = set()
         potential_water = set()
+
+        coasts = 0
+        forests = 0
+        swamps = 0
+        caves = 0
 
         for province in self.provinces:
             if self.provinces[province].hasTerrain("START"):
                 if self.provinces[province].hasTerrain('WATER'):
                     self.start_positions_water.add(province)
                 else:
+                    if self.provinces[province].hasTerrain('CAVE'):
+                        caves += 1
+                    elif self.provinces[province].hasTerrain('SWAMP'):
+                        swamps += 1
+                    elif self.provinces[province].hasTerrain('FOREST'):
+                        forests += 1
+                    elif self.provinces[province].hasTerrain('COAST'):
+                        coasts += 1
                     self.start_positions_land.add(province)
             elif self.provinces[province].hasTerrain("THRONE"):
                 thrones.add(province)
@@ -441,12 +456,13 @@ class Random4Map:
             new_water_starts = []
 
             if len(self.start_positions_land) < landnations:
-                new_land_starts = self.findStarts(potential_land, landnations - len(self.start_positions_land))
+                new_land_starts = self.findStarts(potential_land, landnations - len(self.start_positions_land), \
+                                                  coaststarts - coasts, foreststarts - forests, swampstarts - swamps, cavestarts - caves)
                 if new_land_starts is None:
                     continue
 
             if len(self.start_positions_water) < waternations:
-                new_water_starts = self.findStarts(potential_water, waternations - len(self.start_positions_water))
+                new_water_starts = self.findStarts(potential_water, waternations - len(self.start_positions_water), 0, 0, 0, 0)
                 if new_water_starts is None:
                     continue
 
@@ -479,26 +495,49 @@ class Random4Map:
                 self.provinces[choice].addThrone(i + 1, thrones_in_game)
 
 
-    def findStarts(self, potential, count):
+    def findStarts(self, potential, count, coasts, forests, swamps, caves):
         if len(potential) == 0:
             return None
 
         # Attempt 10 different random setups before giving up
         for i in xrange(10):
 
-            choice = random.sample(potential, 1)
+            coc, foc, swc, cac = 0, 0, 0, 0
+
+            if caves > 0:
+                choice = self.findTerrain(potential, "CAVE")
+                cac = 1
+            elif swamps > 0:
+                choice = self.findTerrain(potential, "SWAMP")
+                swc = 1
+            elif forests > 0:
+                choice = self.findTerrain(potential, "FOREST")
+                foc = 1
+            elif coasts > 0:
+                choice = self.findTerrain(potential, "COAST")
+                coc = 1
+            else:
+                choice = random.sample(potential, 1)
+            if choice is None:
+                return None
             if count == 1:
                 return choice
 
             no_go2 = set(self.provinces[choice[0]].getConnections())
             no_go2 |= set([y for x in no_go2 for y in self.provinces[x].getConnections()])
 
-            nxt = self.findStarts(potential - no_go2, count - 1)
+            nxt = self.findStarts(potential - no_go2, count - 1, coasts - coc, forests - foc, swamps - swc, caves - cac)
 
             if nxt is not None:
                 return choice + nxt
 
         return None
+
+    def findTerrain(self, potential, terrain):
+        choices = [prov for prov in potential if self.provinces[prov].hasTerrain(terrain)]
+        if len(choices) == 0:
+            return None
+        return [random.choice(choices)]
 
     def populate(self, indies):
 
