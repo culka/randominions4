@@ -2,6 +2,359 @@
     "title": "MA Indies",
     "poptypes": [
         {
+            "terrain": ["deepwater"],
+            "rare": 0.25,
+            "commander": [
+                {
+                    "type": "Giboleth",
+                    "count": 3
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Polypal Spawn",
+                    "count": 50
+                },
+                {
+                    "type": "Vile Thing",
+                    "count": 3
+                }
+            ],
+            "recruitable_commanders": [
+                "Traitor Prince"
+            ],
+            "recruitable_units": [
+                335
+            ],
+            "pd_commander": "Polypal Mother",
+            "pd": [
+                {
+                    "type": "Polypal Spawn",
+                    "count": 10
+                },
+                {
+                    "type": 335,
+                    "count": 10
+                }
+            ]
+        },
+        {
+            "terrain": ["water", "deepwater"],
+            "commander": [
+                {
+                    "type": "Ryujin",
+                    "count": 1
+                },
+                {
+                    "type": "Crab General",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Shark Warrior",
+                    "count": 10
+                },
+                {
+                    "type": "Shrimp Soldier",
+                    "count": 25
+                }
+            ],
+            "recruitable_commanders": [
+                "Crab General"
+            ],
+            "recruitable_units": [
+                "Shrimp Soldier", "Shark Warrior"
+            ],
+            "pd_commander": "Crab General",
+            "pd": [
+                {
+                    "type": "Shrimp Soldier",
+                    "count": 10
+                },
+                {
+                    "type": "Shark Warrior",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["deepwater"],
+            "commander": [
+                {
+                    "type": "Holy Deep One",
+                    "count": 2
+                },
+                {
+                    "type": "Shambler Chief",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Deep One",
+                    "count": 25
+                },
+                {
+                    "type": "Deep One Spearman",
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                "Shambler Chief"
+            ],
+            "recruitable_units": [
+                "Deep One"
+            ],
+            "pd_commander": "Shambler Chief",
+            "pd": [
+                {
+                    "type": "Deep One",
+                    "count": 15
+                }
+            ]
+        },
+        {
+            "terrain": ["water"],
+            "commander": [
+                {
+                    "type": 1696,
+                    "count": 1
+                },
+                {
+                    "type": 1067,
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 1065,
+                    "count": 15
+                },
+                {
+                    "type": 1046,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                1067, 1050, 1696
+            ],
+            "recruitable_units": [
+                1065, 1046
+            ],
+            "pd_commander": 1067,
+            "pd": [
+                {
+                    "type": 1065,
+                    "count": 10
+                },
+                {
+                    "type": 1046,
+                    "count": 5
+                }
+            ]
+        },
+        {
+            "terrain": ["water"],
+            "commander": [
+                {
+                    "type": "Azure Initiate",
+                    "count": 1
+                },
+                {
+                    "type": "Triton Commander",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 174,
+                    "count": 25
+                },
+                {
+                    "type": "Shark Knight",
+                    "count": 7
+                }
+            ],
+            "recruitable_commanders": [
+                "Triton Commander"
+            ],
+            "recruitable_units": [
+                174, "Shark Knight"
+            ],
+            "pd_commander": "Triton Commander",
+            "pd": [
+                {
+                    "type": 174,
+                    "count": 10
+                },
+                {
+                    "type": "Shark Knight",
+                    "count": 2
+                }
+            ]
+        },
+        {
+            "terrain": ["water"],
+            "commander": [
+                {
+                    "type": "Azure Initiate",
+                    "count": 1
+                },
+                {
+                    "type": "Triton Commander",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 176,
+                    "count": 15
+                },
+                {
+                    "type": "Triton Guard",
+                    "count": 15
+                },
+                {
+                    "type": "Triton Trooper",
+                    "count": 10
+                }
+            ],
+            "recruitable_commanders": [
+                "Triton Commander"
+            ],
+            "recruitable_units": [
+                176, "Triton Guard", "Triton Trooper"
+            ],
+            "pd_commander": "Triton Commander",
+            "pd": [
+                {
+                    "type": 176,
+                    "count": 10
+                },
+                {
+                    "type": "Triton Guard",
+                    "count": 5
+                },
+                {
+                    "type": "Triton Trooper",
+                    "count": 3
+                }
+            ]
+        },
+        {
+            "terrain": ["water"],
+            "commander": [
+                {
+                    "type": "Azure Initiate",
+                    "count": 1
+                },
+                {
+                    "type": "Turtle Chief",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Turtle Warrior",
+                    "count": 25
+                }
+            ],
+            "recruitable_commanders": [
+                "Turtle Chief"
+            ],
+            "recruitable_units": [
+                "Turtle Warrior"
+            ],
+            "pd_commander": "Turtle Chief",
+            "pd": [
+                {
+                    "type": "Turtle Warrior",
+                    "count": 15
+                }
+            ]
+        },
+        {
+            "terrain": ["water"],
+            "commander": [
+                {
+                    "type": "Azure Initiate",
+                    "count": 1
+                },
+                {
+                    "type": "Triton Commander",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": "Shark Tribe Triton",
+                    "count": 25
+                },
+                {
+                    "type": "Shark",
+                    "count": 4
+                }
+            ],
+            "recruitable_commanders": [
+                "Triton Commander"
+            ],
+            "recruitable_units": [
+                "Shark Tribe Triton"
+            ],
+            "pd_commander": "Triton Commander",
+            "pd": [
+                {
+                    "type": "Shark Tribe Triton",
+                    "count": 10
+                },
+                {
+                    "type": "Shark",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            "terrain": ["water", "deepwater"],
+            "commander": [
+                {
+                    "type": "Merrow Druid",
+                    "count": 2
+                },
+                {
+                    "type": "Merrow Chieftain",
+                    "count": 2
+                }
+            ],
+            "unit": [
+                {
+                    "type": 2903,
+                    "count": 20
+                },
+                {
+                    "type": 2904,
+                    "count": 15
+                }
+            ],
+            "recruitable_commanders": [
+                "Merrow Druid", "Merrow Chieftain"
+            ],
+            "recruitable_units": [
+                2903, 2904
+            ],
+            "pd_commander": "Merrow Chieftain",
+            "pd": [
+                {
+                    "type": 2903,
+                    "count": 10
+                },
+                {
+                    "type": 2904,
+                    "count": 5
+                }
+            ]
+        },
+        {
             "terrain": ["mountain"],
             "rare": 0.75,
             "commander": [
@@ -410,7 +763,7 @@
             ]
         },
         {
-            "terrain": ["swamp", "water"],
+            "terrain": ["water", "deepwater", "coast"],
             "commander": [
                 {
                     "type": "Shambler Chief",
@@ -973,7 +1326,7 @@
             ]
         },
         {
-            "terrain": ["swamp", "cave", "water"],
+            "terrain": ["swamp", "cave", "water", "coast"],
             "commander": [
                 {
                     "type": "Toad Tribe Shaman",
