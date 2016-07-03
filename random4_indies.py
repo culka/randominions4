@@ -1,25 +1,23 @@
 import json
 import random
 
+terrainlists = lambda : {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": [], "coast": []}
+
 class Random4Indies:
 
     def __init__(self, rarechance, strength):
 
         self.rarechance = rarechance
         self.strength = strength / 100.0
-        self.poptypes = {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []}
-        self.rares = {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []}
-        self.throne_guards = {
-            1: {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []},
-            2: {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []},
-            3: {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []}
-        }
+        self.poptypes = terrainlists()
+        self.rares = terrainlists()
+        self.throne_guards = {key: terrainlists() for key in xrange(1,4)}
         self.allpop = []
         self.index = 25
         random.seed()
 
 
-    def readIndies(self, sourcefile)
+    def readIndies(self, sourcefile):
         with open(sourcefile, 'r') as infile:
             data = json.load(infile)
 

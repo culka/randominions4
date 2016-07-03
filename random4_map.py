@@ -245,6 +245,8 @@ class Province:
 
         if len(terrains) == 0:
             terrains.append('plains')
+        if self.coast:
+            terrains.append('coast')
 
         return terrains
 
@@ -296,9 +298,6 @@ class Province:
 
     def getIndies(self):
         return self.indies
-
-    def isCoast(self):
-        return self.coast
 
     def checkCoast(self, provinces):
         if not (self.terrain & TERRAIN_MASK['WATER']) == TERRAIN_MASK['WATER']:
