@@ -3,7 +3,7 @@ import random
 
 class Random4Indies:
 
-    def __init__(self, sourcefile, rarechance, strength):
+    def __init__(self, rarechance, strength):
 
         self.rarechance = rarechance
         self.strength = strength / 100.0
@@ -15,21 +15,23 @@ class Random4Indies:
             3: {"plains": [], "farm": [], "forest": [], "mountain": [], "waste": [], "swamp": [], "cave": [], "water": [], "deepwater": []}
         }
         self.allpop = []
+        self.index = 25
+        random.seed()
 
+
+    def readIndies(self, sourcefile)
         with open(sourcefile, 'r') as infile:
             data = json.load(infile)
 
-        index = 25
-
         for entry in data['poptypes']:
-            entry['index'] = str(index)
+            entry['index'] = str(self.index)
             for terrain in entry['terrain']:
                 if self.poptypes.get(terrain) is None:
                     print "Error: found unknown terrain " + terrain + " in " + sourcefile
                 else:
                     self.poptypes[terrain].append(entry)
             self.allpop.append(entry)
-            index += 1
+            self.index += 1
 
         for entry in data['rares']:
             for terrain in entry['terrain']:
@@ -46,7 +48,6 @@ class Random4Indies:
                     else:
                         self.throne_guards[int(level)][terrain].append(entry)
 
-        random.seed()
 
     def getPoptypeForTerrain(self, terrains):
         choices = []

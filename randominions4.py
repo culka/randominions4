@@ -17,7 +17,8 @@ def main(argv):
         rarechance = int(argv[9])
         strength = int(argv[10])
 
-        indies = random4_indies.Random4Indies(indyfile, rarechance, strength)
+        indies = random4_indies.Random4Indies(rarechance, strength)
+        indies.readIndies(indyfile)
         randommap = random4_map.Random4Map(mapfile)
         randommap.position(landcount, watercount, lvl1thrones, lvl2thrones, lvl3thrones)
         randommap.populate(indies)
