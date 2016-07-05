@@ -1710,13 +1710,12 @@
             "terrain": ["waste", "mountain"],
             "commander": [
                 {
-                    "type": 141,
+                    "type": "Barbarian Chief",
                     "count": 2
                 },
                 {
                     "type": 147,
-                    "count": 1,
-                    "rarity": 0.25
+                    "count": 1
                 }
             ],
             "unit": [
@@ -1730,16 +1729,20 @@
                 }
             ],
             "recruitable_commanders": [
-                141
+                "Barbarian Chief"
             ],
             "recruitable_units": [
                 139, 140
             ],
-            "pd_commander": 240,
+            "pd_commander": "Barbarian Chief",
             "pd": [
                 {
-                    "type": 39,
+                    "type": 139,
                     "count": 10
+                },
+                {
+                    "type": 140,
+                    "count": 5
                 }
             ]
         },
@@ -1791,16 +1794,16 @@
                 }
             ],
             "recruitable_commanders": [
-                141
+                1463
             ],
             "recruitable_units": [
-                139, 140
+                1465
             ],
-            "pd_commander": 141,
+            "pd_commander": 1463,
             "pd": [
                 {
-                    "type": 139,
-                    "count": 10
+                    "type": 1465,
+                    "count": 15
                 }
             ]
         }
