@@ -222,6 +222,9 @@ class Province:
     def setTerrain(self, new_terrain):
         self.terrain = int(new_terrain)
 
+    def clearTerrain(self, terrain_to_remove):
+        self.terrain &= ~TERRAIN_MASK[terrain_to_remove]
+
     def getIndyTerrains(self):
         terrains = []
         if self.hasTerrain('WATER'):
@@ -430,6 +433,7 @@ class Random4Map:
                     self.start_positions_land.add(province)
             elif self.provinces[province].hasTerrain("THRONE"):
                 thrones.add(province)
+                self.provinces[province].clearTerrain("THRONE")
             elif self.provinces[province].properConnectionCount(self.provinces) >= CONNECTION_THRESHOLD:
                 if self.provinces[province].hasTerrain('WATER'):
                     potential_water.add(province)

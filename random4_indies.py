@@ -8,44 +8,45 @@ class Random4Indies:
     def __init__(self, rarechance, strength):
 
         self.rarechance = rarechance
-        self.strength = strength / 100.0
+        self.strength = strength // 100
         self.poptypes = terrainlists()
         self.rares = terrainlists()
-        self.throne_guards = {key: terrainlists() for key in xrange(1,4)}
+        self.throne_guards = {key: terrainlists() for key in xrange(1, 4)}
         self.allpop = []
         self.index = 25
         random.seed()
-
 
     def readIndies(self, sourcefile):
         with open(sourcefile, 'r') as infile:
             data = json.load(infile)
 
-        for entry in data['poptypes']:
-            entry['index'] = str(self.index)
-            for terrain in entry['terrain']:
-                if self.poptypes.get(terrain) is None:
-                    print "Error: found unknown terrain " + terrain + " in " + sourcefile
-                else:
-                    self.poptypes[terrain].append(entry)
-            self.allpop.append(entry)
-            self.index += 1
-
-        for entry in data['rares']:
-            for terrain in entry['terrain']:
-                if self.rares.get(terrain) is None:
-                    print "Error: found unknown terrain " + terrain + " in " + sourcefile
-                else:
-                    self.rares[terrain].append(entry)
-
-        for level in data['throne_guards']:
-            for entry in data['throne_guards'][level]:
+        if data.get('poptypes') is not None:
+            for entry in data['poptypes']:
+                entry['index'] = str(self.index)
                 for terrain in entry['terrain']:
-                    if self.throne_guards[int(level)].get(terrain) is None:
+                    if self.poptypes.get(terrain) is None:
                         print "Error: found unknown terrain " + terrain + " in " + sourcefile
                     else:
-                        self.throne_guards[int(level)][terrain].append(entry)
+                        self.poptypes[terrain].append(entry)
+                self.allpop.append(entry)
+                self.index += 1
 
+        if data.get('rares') is not None:
+            for entry in data['rares']:
+                for terrain in entry['terrain']:
+                    if self.rares.get(terrain) is None:
+                        print "Error: found unknown terrain " + terrain + " in " + sourcefile
+                    else:
+                        self.rares[terrain].append(entry)
+
+        if data.get('throne_guards') is not None:
+            for level in data['throne_guards']:
+                for entry in data['throne_guards'][level]:
+                    for terrain in entry['terrain']:
+                        if self.throne_guards[int(level)].get(terrain) is None:
+                            print "Error: found unknown terrain " + terrain + " in " + sourcefile
+                        else:
+                            self.throne_guards[int(level)][terrain].append(entry)
 
     def getPoptypeForTerrain(self, terrains):
         choices = []
@@ -165,31 +166,36 @@ class Random4Indies:
     def writeModFile(self, modfile):
 
         with open(modfile + '.dm', 'w') as ofile:
-            ofile.write('#modname "Random indies for ' + modfile + '"\n')
-            ofile.write('#description "Random indies for ' + modfile + '"\n')
-            ofile.write('#version 100\n')
-            ofile.write('#domversion 350\n')
+            self.writeHeader(ofile)
+            self.writePoptype(ofile)
 
-            for poptype in self.allpop:
-                ofile.write('\n')
-                ofile.write('#selectpoptype ' + str(poptype['index']) + '\n')
-                ofile.write('#clearrec\n')
-                ofile.write('#cleardef\n')
+    def writeHeader(self, ofile, modfile):
+        ofile.write('#modname "Random indies for ' + modfile + '"\n')
+        ofile.write('#description "Random indies for ' + modfile + '"\n')
+        ofile.write('#version 100\n')
+        ofile.write('#domversion 350\n')
 
-                ofile.write('#defcom1 ' + self.getString(poptype['pd_commander']) + '\n')
+    def writePoptype(self, ofile):
+        for poptype in self.allpop:
+            ofile.write('\n')
+            ofile.write('#selectpoptype ' + str(poptype['index']) + '\n')
+            ofile.write('#clearrec\n')
+            ofile.write('#cleardef\n')
 
-                prefix = ['', 'b', 'c']
-                for pd in xrange(min(len(poptype['pd']), 3)):
-                    ofile.write('#defunit1' + prefix[pd] + ' ' + self.getString(poptype['pd'][pd]['type']) + '\n')
-                    ofile.write('#defmult1' + prefix[pd] + ' ' + str(poptype['pd'][pd]['count']) + '\n')
+            ofile.write('#defcom1 ' + self.getString(poptype['pd_commander']) + '\n')
 
-                for reccom in poptype['recruitable_commanders']:
-                    ofile.write('#addreccom ' + self.getString(reccom) + '\n')
+            prefix = ['', 'b', 'c']
+            for pd in xrange(min(len(poptype['pd']), 3)):
+                ofile.write('#defunit1' + prefix[pd] + ' ' + self.getString(poptype['pd'][pd]['type']) + '\n')
+                ofile.write('#defmult1' + prefix[pd] + ' ' + str(poptype['pd'][pd]['count']) + '\n')
 
-                for recunit in poptype['recruitable_units']:
-                    ofile.write('#addrecunit ' + self.getString(recunit) + '\n')
+            for reccom in poptype['recruitable_commanders']:
+                ofile.write('#addreccom ' + self.getString(reccom) + '\n')
 
-                ofile.write('#end\n')
+            for recunit in poptype['recruitable_units']:
+                ofile.write('#addrecunit ' + self.getString(recunit) + '\n')
+
+            ofile.write('#end\n')
 
     def getString(self, item):
         if isinstance(item, basestring):
