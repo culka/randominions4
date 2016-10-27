@@ -4,13 +4,17 @@ from random4_indies import Random4Indies
 
 # DOMINIONS 4 CAN HANDLE REFERENCES TO NAMES OF MAX LENGTH 35
 
-terrains = ["plains", "farm", "forest", "mountain", "waste", "swamp",
-            "cave", "coast"]
+terrains = ["plains", "farm", "forest", "mountain",
+            "waste", "swamp", "coast"]
 
 reservednames = ["General", "Castellan", "Spy", "Scout", "Assassin",
                  "Warchief", "Warden", "High Priest", "Colonel",
                  "Lieutenant", "Warlord", "Spearmaster", "Cardinal",
-                 "Rishi"]
+                 "Rishi", "Guru", "Exarch", "Captain", "Acolyte",
+                 "Demon Knight", "Priest", "Monk", "Master Swordsman",
+                 "Siege Engineer", "Engineer", "Sergeant", "Primate",
+                 "Brother", "Sister", "Commander", "Arch Bishop",
+                 "Hermit"]
 
 
 class Random4NationgenParser(Random4Indies):
@@ -19,10 +23,11 @@ class Random4NationgenParser(Random4Indies):
         Random4Indies.__init__(self, rarechance, strength)
         self.allowsacred = allowsacred
         self.magestrength = magestrength
-        self.neededunits = []
+        self.neededunits = Set()
         self.weapons = dict()
         self.armor = dict()
         self.units = dict()
+        self.montags = dict()
 
     def parse(self, natgenfile):
         sites = dict()
@@ -47,11 +52,11 @@ class Random4NationgenParser(Random4Indies):
                     nations[line.split(' ')[1].strip()] = \
                         self.parseNation(infile, sites)
 
-        pops = []
-
         for nation in nations:
             poptype = dict()
-            poptype['terrain'] = terrains
+            water = True
+            darkvision = True
+            poptype['terrain'] = terrains[:]
             commanders = []
             i = random.randint(2, 3)
             while i > 0:
@@ -59,6 +64,8 @@ class Random4NationgenParser(Random4Indies):
                 if self.units[com]['power'] < self.magestrength and \
                         com not in commanders:
                     commanders.append(com)
+                    water &= self.units[com]['water']
+                    darkvision &= self.units[com]['darkvision']
                     i -= 1
             troops = []
             i = random.randint(2, 4)
@@ -67,7 +74,15 @@ class Random4NationgenParser(Random4Indies):
                 if ((self.units[unit]['sacred'] and self.allowsacred) or
                         not self.units[unit]['sacred']) and unit not in troops:
                     troops.append(unit)
+                    water &= self.units[unit]['water']
+                    darkvision &= self.units[unit]['darkvision']
                     i -= 1
+
+            if water:
+                poptype['terrain'] += ['water', 'deepwater']
+
+            if darkvision:
+                poptype['terrain'].append('cave')
 
             poptype['commander'] = []
             poptype['recruitable_commanders'] = []
@@ -76,7 +91,7 @@ class Random4NationgenParser(Random4Indies):
                 name = self.units[com]['name']
                 poptype['commander'].append({'type': name, 'count': count})
                 poptype['recruitable_commanders'].append(name)
-                self.neededunits.append(com)
+                self.neededunits.add(com)
 
             poptype['unit'] = []
             poptype['recruitable_units'] = []
@@ -86,21 +101,28 @@ class Random4NationgenParser(Random4Indies):
                     count = -(-(self.strength * 100) //
                               self.units[unit]['cost'])
                     name = self.units[unit]['name']
+                    pdname = name
+                    for shape in self.units[unit]['shapes']:
+                        if int(shape) < 0:
+                            rng = random.choice(
+                                self.montags[abs(int(shape))])
+                            pdname = self.units[rng]['name']
+                            break
+
                     poptype['unit'].append({'type': name, 'count': count * 2})
-                    poptype['pd'].append({'type': name, 'count': count})
+                    poptype['pd'].append({'type': pdname, 'count': count})
                     poptype['recruitable_units'].append(name)
-                    self.neededunits.append(unit)
+                    self.neededunits.add(unit)
                 except ZeroDivisionError:
                     print(self.units[unit])
 
             poptype['pd_commander'] = poptype['recruitable_commanders'][0]
+
             poptype['index'] = str(self.index)
             self.index += 1
             self.allpop.append(poptype)
-            pops.append(poptype)
 
-        for terrain in self.poptypes:
-            for poptype in pops:
+            for terrain in poptype['terrain']:
                 self.poptypes[terrain].append(poptype)
 
     def parseWeapon(self, infile, firstline):
@@ -131,6 +153,8 @@ class Random4NationgenParser(Random4Indies):
         cost = 0
         name = None
         sacred = False
+        water = False
+        darkvision = False
         power = 0
         shapes = []
         weapons = []
@@ -143,11 +167,13 @@ class Random4NationgenParser(Random4Indies):
                 return {'name': name, 'cost': cost,
                         'sacred': sacred, 'power': power,
                         'shapes': shapes, 'armor': armor,
-                        'weapons': weapons, 'text': text}
+                        'weapons': weapons, 'text': text,
+                        'water': water, 'darkvision': darkvision}
             elif line.startswith('#name '):
                 name = line.split(' ', 1)[1].strip('" \n\r')[:35]
                 continue
             text += line
+            line = line.strip()
             if line.startswith('#gcost '):
                 cost = int(line.split(' ')[1])
             elif line.startswith('#copystats ') or \
@@ -155,17 +181,31 @@ class Random4NationgenParser(Random4Indies):
                     line.startswith('#secondshape ') or \
                     line.startswith('#secondtmpshape ') or \
                     line.startswith('#shapechange '):
-                shapes.append(line.split(' ')[1].strip())
+                shapes.append(line.split(' ')[1])
+            elif line.startswith('#montag '):
+                monnum = int(line.split(' ')[1])
+                if self.montags.get(monnum) is None:
+                    self.montags[monnum] = []
+                self.montags[monnum].append(firstline.split(' ')[1].strip())
             elif line.startswith('#armor '):
-                armor.append(line.split(' ')[1].strip())
+                armor.append(line.split(' ')[1])
             elif line.startswith('#weapon '):
-                weapons.append(line.split(' ')[1].strip())
+                weapons.append(line.split(' ')[1])
             elif line.startswith('#magicskill '):
-                power += int(line.split(' ')[2].strip())
+                power += int(line.split(' ')[2])
             elif line.startswith('#custommagic '):
-                power += int(line.split(' ')[2].strip()) / 100
-            elif line.strip() == "#holy":
+                power += int(line.split(' ')[2]) / 100
+            elif line == "#holy":
                 sacred = True
+            elif line == '#undead' or \
+                    line == '#demon' or \
+                    line == '#blind' or \
+                    line.startswith('#darkvision ') or \
+                    line.startswith('#darkpower '):
+                darkvision = True
+            elif line == '#pooramphibian' or \
+                    line == '#amphibian':
+                water = True
 
     def parseSite(self, infile, sites):
         name = None
@@ -226,15 +266,28 @@ class Random4NationgenParser(Random4Indies):
 
     def writeModFile(self, modfile):
 
-        units = Set()
-        for unit in self.neededunits:
-            for shape in self.units[unit]['shapes']:
-                units.add(shape)
-            units.add(unit)
+        while True:
+            newunits = Set()
+            for unit in self.neededunits:
+                if self.units.get(unit) is None:
+                    continue
+                for shape in self.units[unit]['shapes']:
+                    if int(shape) < 0 and \
+                       self.montags.get(abs(int(shape))) is not None:
+                        for monunit in self.montags[abs(int(shape))]:
+                            if monunit not in self.neededunits:
+                                newunits.add(monunit)
+                    elif shape not in self.neededunits:
+                        newunits.add(shape)
+
+            if len(newunits) > 0:
+                self.neededunits |= newunits
+            else:
+                break
 
         weapons = Set()
         armors = Set()
-        for unit in units:
+        for unit in self.neededunits:
             if self.units.get(unit) is not None:
                 for weapon in self.units[unit]['weapons']:
                     weapons.add(weapon)
@@ -262,7 +315,7 @@ class Random4NationgenParser(Random4Indies):
             for weapon in weapons:
                 if self.weapons.get(weapon) is not None:
                     ofile.write(self.weapons[weapon]['text'])
-            for unit in units:
+            for unit in self.neededunits:
                 if self.units.get(unit) is not None:
                     ofile.write(self.units[unit]['text'])
                     if self.units[unit]['name'] is not None:
